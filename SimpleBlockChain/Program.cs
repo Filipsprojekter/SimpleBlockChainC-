@@ -14,16 +14,16 @@ namespace SimpleBlockChain
             blockChain.CreateTransaction(new Transactions(user1Address,user2Address,200));
             blockChain.CreateTransaction(new Transactions(user2Address, user1Address, 10));
 
-            Console.WriteLine("Chain is valid: {0}",blockChain.IsValidChain());
+            Console.WriteLine($"Chain is valid: {blockChain.IsValidChain()}");
             Console.WriteLine("\n" + "---------Started mining---------");
             blockChain.MineBlock(minerAddress);
 
-            Console.WriteLine("Balance of the miner is: {0}",blockChain.GetBalance(minerAddress));
+            Console.WriteLine($"Balance of the miner is: {blockChain.GetBalance(minerAddress)}");
 
             blockChain.CreateTransaction(new Transactions(user1Address,user2Address,5));
             Console.WriteLine("\n" + "---------Started mining---------");
             blockChain.MineBlock(minerAddress);
-            Console.WriteLine("Balance of the miner is: {0}", blockChain.GetBalance(minerAddress));
+            Console.WriteLine($"Balance of the miner is: {blockChain.GetBalance(minerAddress)}");
             Console.WriteLine();
             PrintChain(blockChain);
 
@@ -37,8 +37,8 @@ namespace SimpleBlockChain
             {
                 Console.WriteLine();
                 Console.WriteLine("------ Start Block ------");
-                Console.WriteLine("Hash: {0}", block.Hash);
-                Console.WriteLine("Previous Hash: {0}", block.PreviousHash);
+                Console.WriteLine($"Hash: {block.Hash}");
+                Console.WriteLine($"Previous Hash: {block.PreviousHash}");
                 Console.WriteLine("--- Start Transactions ---");
                 foreach (Transactions transaction in block.TransactionsList)
                 {
